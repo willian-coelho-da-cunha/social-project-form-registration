@@ -105,6 +105,109 @@
           }
         }
       }
+    },
+    "social-project-form-registration": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/social-project-form-registration",
+      "sourceRoot": "projects/social-project-form-registration/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/social-project-form-registration",
+            "index": "projects/social-project-form-registration/src/index.html",
+            "main": "projects/social-project-form-registration/src/main.ts",
+            "polyfills": "projects/social-project-form-registration/src/polyfills.ts",
+            "tsConfig": "projects/social-project-form-registration/tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/social-project-form-registration/src/favicon.ico",
+              "projects/social-project-form-registration/src/assets"
+            ],
+            "styles": [
+              "projects/social-project-form-registration/src/styles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/social-project-form-registration/src/environments/environment.ts",
+                  "with": "projects/social-project-form-registration/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "social-project-form-registration:build:production"
+            },
+            "development": {
+              "browserTarget": "social-project-form-registration:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "social-project-form-registration:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/social-project-form-registration/src/test.ts",
+            "polyfills": "projects/social-project-form-registration/src/polyfills.ts",
+            "tsConfig": "projects/social-project-form-registration/tsconfig.spec.json",
+            "karmaConfig": "projects/social-project-form-registration/karma.conf.js",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/social-project-form-registration/src/favicon.ico",
+              "projects/social-project-form-registration/src/assets"
+            ],
+            "styles": [
+              "projects/social-project-form-registration/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "defaultProject": "header"
