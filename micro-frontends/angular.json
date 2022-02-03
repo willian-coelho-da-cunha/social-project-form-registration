@@ -311,6 +311,37 @@
           }
         }
       }
+    },
+    "uielements": {
+      "projectType": "library",
+      "root": "projects/uielements",
+      "sourceRoot": "projects/uielements/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/uielements/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/uielements/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/uielements/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/uielements/src/test.ts",
+            "tsConfig": "projects/uielements/tsconfig.spec.json",
+            "karmaConfig": "projects/uielements/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "header"
